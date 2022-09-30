@@ -1,0 +1,120 @@
+<%- include("partials/head") -%>
+
+  <body>
+    <header class="d-flex p-4 justify-content-between bg-dark">
+      <div class="brand-logo">
+        <h2 class="text-white">Livestock Management System</h2>
+      </div>
+    </header>
+    <main>
+      <div class="row" style="overflow: hidden;">
+        <div class="col-md-2 p-3 bg-dark" style="height: calc(100vh - 90px);overflow: hidden;">
+          <div class="d-flex flex-column">
+            <div>
+              <p class="btn btn-outline-light w-100"><a href="/">Home <i class="fas fa-home"></i></a></p>
+              <p class="btn btn-outline-light w-100"><a href="/sells">Sells <i class="fas fa-plus"></i></a></p>
+              <p class="btn btn-light w-100"><a href="/customers" class="text-primary">Customers <i
+                    class="fas fa-users"></i></a></p>
+              <p class="btn btn-outline-light w-100"><a href="/add">Add livestock <i class="fas fa-plus"></i></a></p>
+              <p class="btn btn-outline-light w-100"><a href="/about">About us <i class="fas fa-users"></i></a></p>
+            </div>
+            <div class="text-center">
+              <h6 class="text-white mt-5">Powered by Hi-Tech</h6>
+              <p class="text-white">&copy; 2022</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 p-4" style="height: calc(100vh - 90px);overflow-y: scroll;">
+          <div class="container my-2">
+            <h1>Customers</h1>
+          </div>
+          <div class="search-bar form-group">
+            <form class="input-group" action="/search" method="get">
+              <input class="form-control" name="phone" type="text" placeholder="Search customer by phone number...">
+              <span><button class="btn btn-outline-dark"><i class="fas fa-search"></i></button></span>
+            </form>
+          </div>
+          <hr class="hr">
+          <div class="content">
+            <div class="container">
+              <table class="table responsive">
+                <thead>
+                  <tr>
+                    <th>S/N</th>
+                    <th>first name</th>
+                    <th>last name</th>
+                    <th>Phone number</th>
+                    <th>Email</th>
+                    <th>Dog name</th>
+                    <th>Dog image</th>
+                    <th>Seller name</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% if(phone) {%>
+                    <tr>
+                      <td>1</td>
+                      <td>
+                        <%= phone.fname %>
+                      </td>
+                      <td>
+                        <%= phone.lname %>
+                      </td>
+                      <td>
+                        <%= phone.phone_number %>
+                      </td>
+                      <td>
+                        <%= phone.email %>
+                      </td>
+                      <td>
+                        <%= phone.dog.name %>
+                      </td>
+                      <td>
+                        <img style="width: 50px;height: 50px;" src="/assets/images/<%= phone.dog.image %>"
+                          alt="<%= phone.dog.name %>">
+                      </td>
+                      <td>
+                        <%= phone.seller_fname %>
+                      </td>
+                    </tr>
+                    <%} else {%>
+                      <% customers.forEach((customer,i)=> {%>
+                        <tr>
+                          <td>
+                            <%= i + 1 %>
+                          </td>
+                          <td>
+                            <%= customer.fname %>
+                          </td>
+                          <td>
+                            <%= customer.lname %>
+                          </td>
+                          <td>
+                            <%= customer.phone_number %>
+                          </td>
+                          <td>
+                            <%= customer.email %>
+                          </td>
+                          <td>
+                            <%= customer.dog.name %>
+                          </td>
+                          <td>
+                            <img style="width: 50px;height: 50px;" src="/assets/images/<%= customer.dog.image %>"
+                              alt="<%= customer.dog.name %>">
+                          </td>
+                          <td>
+                            <%= customer.seller_fname %>
+                          </td>
+                        </tr>
+                        <%})%>
+                          <%}%>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+
+  </html>

@@ -1,0 +1,55 @@
+<%- include("partials/head") -%>
+
+  <body>
+    <header class="d-flex p-4 justify-content-between bg-dark">
+      <div class="brand-logo">
+        <h2 class="text-white">Livestock Management System</h2>
+      </div>
+    </header>
+    <main>
+      <div class="row" style="overflow: hidden;">
+        <div class="col-md-2 p-3 bg-dark" style="height: calc(100vh - 90px);overflow: hidden;">
+          <p class="btn btn-outline-light w-100"><a href="/">Home <i class="fas fa-home"></i></a></p>
+          <p class="btn btn-outline-light w-100"><a href="/sells">Sells <i class="fas fa-plus"></i></a>
+          </p>
+          <p class="btn btn-outline-light w-100"><a href="/customers">Customers <i class="fas fa-users"></i></a></p>
+          <p class="btn btn-outline-light w-100"><a href="/add">Add livestock <i class="fas fa-plus"></i></a></p>
+          <p class="btn btn-light w-100"><a href="/about" class="text-primary">About us <i class="fas fa-users"></i></a>
+          </p>
+          <div class="text-center">
+            <h6 class="text-white mt-5">Powered by Hi-Tech</h6>
+            <p class="text-white">&copy; 2022</p>
+          </div>
+        </div>
+        <div class="col-md-10" style="height: calc(100vh - 90px);overflow-y: scroll;">
+          <div class="container my-2">
+            <h1>About us</h1>
+          </div>
+          <div class="content container">
+            <p>This is a Livestock Management System</p>
+            <p>Technology used</p>
+            <h4>Front end</h4>
+            <ol>
+              <li>HTML</li>
+              <li>CSS</li>
+              <li>Bootstrap</li>
+              <li>Font awesome</li>
+              <li>JavaScript</li>
+            </ol>
+            <h4>Back End</h4>
+            <ol>
+              <li>NodeJS</li>
+              <li>ExpressJS</li>
+              <li>Multer</li>
+              <li>EJS</li>
+            </ol>
+            <h4>Database</h4>
+            <li>MongoDB</li>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </body>
+
+  </html>
